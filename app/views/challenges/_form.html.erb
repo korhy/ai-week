@@ -1,0 +1,21 @@
+<%= simple_form_for challenge do |f| %>
+  <%= f.error_notification %>
+
+  <div class="mb-3">
+    <%= f.input :name, label: "Challenge name", placeholder: "e.g. Iterators & Blocks" %>
+  </div>
+  <div class="mb-3">
+    <%= f.input :module, label: "Module", placeholder: "e.g. Ruby" %>
+  </div>
+  <div class="mb-3">
+    <%= f.input :content, as: :text, label: "Content", placeholder: "Describe the challenge...", input_html: { rows: 6 } %>
+  </div>
+  <div class="mb-3">
+    <%= f.input :system_prompt, as: :text, label: "AI System Prompt", placeholder: "Instructions for the AI assistant...", input_html: { rows: 4 } %>
+  </div>
+
+  <div class="d-flex gap-2 mt-4">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to "Cancel", challenges_path, class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>
