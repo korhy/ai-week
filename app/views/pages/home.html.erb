@@ -1,10 +1,12 @@
 <div class="hero d-flex align-items-center">
   <div class="container text-center">
-    <h1 class="hero-title">Wagi - Your AI Coding Assistant</h1>
+    <h1 class="hero-title">Wagi</h1>
     <p class="hero-subtitle">Stuck on a challenge? Get instant, personalized guidance from an AI that understands your code.</p>
     <div class="d-flex justify-content-center gap-3 mt-4">
-      <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-      <% if user_signed_in? == false %>
+      <% if user_signed_in? %>
+        <%= link_to "Browse Challenges", challenges_path, class: "btn btn-primary btn-lg" %>
+      <% else %>
+        <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary btn-lg" %>
         <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-light btn-lg" %>
       <% end %>
     </div>
@@ -31,7 +33,7 @@
       <div class="feature-card p-4">
         <i class="fa-solid fa-graduation-cap fa-2x mb-3 text-primary"></i>
         <h5>Learn by Doing</h5>
-        <p class="text-muted">The AI guides you toward the solution without just giving you the answer.</p>
+        <p class="text-muted">Wagi guides you toward the solution without just giving you the answer.</p>
       </div>
     </div>
   </div>
