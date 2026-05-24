@@ -1,1 +1,30 @@
-// Specific CSS for your home-page
+.hero {
+  min-height: 70vh;
+  background: linear-gradient(135deg, #2d3561 0%, #c05c7e 100%);
+  color: white;
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.feature-card {
+  border-radius: 12px;
+  background: #f8f9fa;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+}
