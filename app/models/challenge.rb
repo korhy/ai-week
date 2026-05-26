@@ -14,4 +14,7 @@ class Challenge < ApplicationRecord
     Always encourage the student and remind them that making mistakes is part of learning.
     Respond in the same language as the student.
   PROMPT
+
+  # Destroy associated chats when a challenge is deleted
+  has_many :chats, dependent: :destroy
 end

@@ -1,0 +1,47 @@
+<div class="chat-layout">
+
+  <div class="chat-header">
+    <div class="container d-flex align-items-center gap-3">
+      <%= link_to @chat.challenge, class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
+      <div>
+        <span class="challenge-module"><%= @chat.challenge.module %></span>
+        <h6 class="mb-0 fw-bold mt-1"><%= @chat.title %></h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-messages" id="chat-messages">
+    <div class="container">
+      <% if @chat.messages.empty? %>
+        <div class="chat-empty text-center text-muted py-5">
+          <i class="fa-solid fa-robot fa-2x mb-3"></i>
+          <p>Hi! I'm Wagi. Ask me anything about this challenge.</p>
+        </div>
+      <% else %>
+        <% @chat.messages.each do |message| %>
+          <div class="message message--<%= message.role %>">
+            <div class="message-bubble">
+              <%= simple_format(message.content) %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="chat-input-bar">
+    <div class="container">
+      <%= form_with model: [@chat, Message.new], class: "d-flex gap-2" do |f| %>
+        <%= f.text_area :content,
+              class: "form-control",
+              placeholder: "Ask Wagi something...",
+              rows: 1,
+              id: "message-input" %>
+        <%= f.submit "Send", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

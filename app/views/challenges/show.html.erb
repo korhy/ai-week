@@ -23,7 +23,12 @@
       </div>
 
       <div class="text-center mt-4">
-        <%= link_to "Chat with Wagi about this challenge", "#", class: "btn btn-primary btn-lg" %>
+        <% existing_chat = current_user.chats.find_by(challenge: @challenge) %>
+        <% if existing_chat %>
+          <%= link_to "Continue chatting with Wagi", existing_chat, class: "btn btn-primary btn-lg" %>
+        <% else %>
+          <%= link_to "Chat with Wagi about this challenge", challenge_chats_path(@challenge), data: { turbo_method: :post }, class: "btn btn-primary btn-lg" %>
+        <% end %>
       </div>
 
     </div>
